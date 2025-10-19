@@ -35,6 +35,7 @@ class Gift(models.Model):
 class Guest(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4)
     name = models.CharField(max_length=200)
+    attending = models.BooleanField(default=False)
     party = models.ForeignKey(Party, on_delete=models.CASCADE, related_name="guests")
 
     def __str__(self):
